@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+node_modules/
+dist/
+.pytest_cache/
+*.db
+uploads/
+
+backend/pgvector-*.whl
+*.zip
