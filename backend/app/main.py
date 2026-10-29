@@ -58,7 +58,27 @@ async def lifespan(_: FastAPI):
             task.cancel()
 
 
-app = FastAPI(title="BizOS API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(
+    title="BizOS API",
+    version="1.0.0",
+    description="BizOS: Agentic AI Business Operating System",
+    contact={
+        "name": "Vinayaka N Walishettar",
+        "url": "https://www.linkedin.com/in/vinayaka-n-walishettar/",
+        "email": "vinayakanw@gmail.com",
+    },
+    lifespan=lifespan,
+)
+
+@app.get("/", tags=["system"])
+def root() -> dict:
+    return {
+        "app": "BizOS API",
+        "version": "1.0.0",
+        "description": "Agentic AI Business Operating System",
+        "developed_by": "Vinayaka N Walishettar",
+        "contact": "https://www.linkedin.com/in/vinayaka-n-walishettar/",
+    }
 
 app.add_middleware(
     CORSMiddleware,
